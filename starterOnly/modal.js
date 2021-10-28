@@ -28,3 +28,35 @@ modalClose.forEach((span) => span.addEventListener("click", closeModal));
 function closeModal() {
   modalbg.style.display = "none";
 }
+
+// verify email modal
+
+function checkEmail(email) {
+  var emailRegulier =
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return emailRegulier.test(email);
+}
+
+function validateEmail() {
+  var email = document.getElementById("email").value;
+
+  if (checkEmail(email)) {
+    return true;
+  } else {
+    alert("Adresse Email non valide");
+    return false;
+  }
+}
+
+// verify checkbox checked
+
+function verifyCheckbox() {
+  var checkbox = document.getElementById("checkbox1");
+
+  if (checkbox.checked) {
+    return true;
+  } else {
+    alert("Veuillez lire et accepter les conditions d'utilisation");
+    return false;
+  }
+}
