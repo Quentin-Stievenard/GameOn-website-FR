@@ -29,29 +29,72 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// verify email modal
+// Validate input + error message
 
-function checkEmail(email) {
-  var emailRegulier =
-    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return emailRegulier.test(email);
-}
-
-function validateEmail() {
-  var email = document.getElementById("email").value;
-
-  if (checkEmail(email)) {
-    return true;
-  } else {
-    alert("Adresse Email non valide");
+function validateInput(input, regex, errorTag, message) {
+  let result = regex.test(input);
+  if (result == false) {
+    errorTag.innerText = message;
+    errorTag.style.color = "red";
+    errorTag.style.fontSize = "14px";
+    errorTag.style.fontWeight = "bold";
     return false;
+  } else {
+    errorTag.innerText = "";
+    return true;
   }
 }
 
+const firstNameTag = document.getElementById("first");
+const firstNameErrorTag = document.getElementById("prenomError");
+firstNameTag.addEventListener("blur", function () {
+  validateInput(
+    firstNameTag.value,
+    /^[a-z ,.'-]+$/i,
+    firstNameErrorTag,
+    "Veuillez saisir un prénom valide"
+  );
+});
+
+const lastNameTag = document.getElementById("email");
+const lastNameErrorTag = document.getElementById("nomError");
+lastNameTag.addEventListener("blur", function () {
+  validateInput(
+    lastNameTag.value,
+    /^[a-z ,.'-]+$/i,
+    lastNameErrorTag,
+    "Veuillez saisir un nom valide"
+  );
+});
+
+const emailTag = document.getElementById("email");
+const emailRegex =
+  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const emailTagError = document.getElementById("mailError");
+emailTag.addEventListener("blur", function () {
+  validateInput(
+    emailTag.value,
+    emailRegex,
+    emailTagError,
+    "Veuillez saisir un email valide"
+  );
+});
+
+const quantityTag = document.getElementById("quantity");
+const numberRegex = /^\d+$/;
+const quantityErrorTag = document.getElementById("quantityError");
+quantityTag.addEventListener("blur", function () {
+  validateInput(
+    quantityTag.value,
+    numberRegex,
+    quantityErrorTag,
+    "Veuillez entrez un nombre"
+  );
+});
 // verify checkbox checked
 
 function verifyCheckbox() {
-  var checkbox = document.getElementById("checkbox1");
+  const checkbox = document.getElementById("checkbox1");
 
   if (checkbox.checked) {
     return true;

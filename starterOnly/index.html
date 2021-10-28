@@ -72,7 +72,9 @@
                   name="first"
                   required
                   minlength="2"
-                /><br>
+                />
+                <br>
+                <span class="error" id="prenomError"></span>
               </div>
               <div
                 class="formData">
@@ -85,6 +87,7 @@
                   required
                   minlength="2"
                 /><br>
+                <span class="error" id="nomError"></span>
               </div>
               <div
                 class="formData">
@@ -95,6 +98,7 @@
                   id="email"
                   name="email"
                 /><br>
+                <span class="error" id="mailError"></span>
               </div>
               <div
                 class="formData">
@@ -110,6 +114,7 @@
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" >
+                <span class="error" id="quantityError"></span>
               </div>
               <p class="text-label"> Quelles villes ?</p>
               <div
