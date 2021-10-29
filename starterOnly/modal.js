@@ -61,7 +61,7 @@ const lastNameErrorTag = document.getElementById("nomError");
 lastNameTag.addEventListener("blur", function () {
   validateInput(
     lastNameTag.value,
-    /^[a-z ,.'-]+$/i,
+    /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/i,
     lastNameErrorTag,
     "Veuillez saisir un nom valide"
   );
