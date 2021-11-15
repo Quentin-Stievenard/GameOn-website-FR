@@ -48,13 +48,15 @@
         Je m'inscris
       </button>
     </div>
-
+<div class="confirmationbg">
+          <div class="confirmation">
+            <h1>Merci ! Votre réservation à été reçue !</h1><span class="close"></span>
+          </div>
+        </div>
     <div class="bground">
       <div class="content">
         <span class="close"></span>
-        <div class="confirmation">
-          <h1>Merci ! Votre réservation à été reçue !</h1><span class="close"></span>
-        </div>
+        
         <div class="modal-body">
           <form name="reserve" action="index.html" id="reserve" method="get" onsubmit="return validate();">
             <div class="formData">
@@ -69,7 +71,7 @@
             </div>
             <div class="formData">
               <label for="email">E-mail</label><br>
-              <input class="text-control" type="email" id="email" name="email" /><br>
+              <input class="text-control" type="email" id="email" name="email" required /><br>
               <span id="mailError"></span>
             </div>
             <div class="formData">
@@ -78,7 +80,7 @@
             </div>
             <div class="formData">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
               <span id="quantityError"></span>
             </div>
             <p class="text-label"> Quelles villes ?</p>
@@ -111,7 +113,7 @@
             </div>
 
             <div class="formData">
-              <input class="checkbox-input" type="checkbox" id="checkbox1" required />
+              <input class="checkbox-input" type="checkbox" id="checkbox1" />
               <label class="checkbox2-label" for="checkbox1">
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
@@ -124,7 +126,7 @@
               </label>
               <br>
             </div>
-            <input class="btn-submit" type="submit" class="button" value="C'est parti" />
+            <input  class="btn-submit" type="submit" class="button" value="C'est parti" />
           </form>
         </div>
       </div>
