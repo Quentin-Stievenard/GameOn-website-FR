@@ -128,19 +128,17 @@ function verifyLocation() {
   }
   radioChecked = isLocationChecked;
 }
-// const birthDateTag = document.getElementById("birthdate");
-// const dateRegex =
-//   /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
-// const birthDateErrorTag = document.getElementById("birthdateError");
-// birthDateTag.addEventListener("blur", function () {
-//   validateInput(
-//     birthDateTag.value,
-//     dateRegex,
-//     birthDateErrorTag,
-//     "Veuillez entrez une date correcte"
-//   );
-//   checked === true ? (birthChecked = true) : (birthChecked = false);
-// });
+const birthDateTag = document.getElementById("birthdate");
+const dateRegex = /[0-9]{4}[-][0-9]{2}[-][0-9]{2}/;
+const birthDateErrorTag = document.getElementById("birthDateError");
+birthDateTag.addEventListener("blur", function () {
+  birthChecked = validateInput(
+    birthDateTag.value,
+    dateRegex,
+    birthDateErrorTag,
+    "Veuillez entrez une date correcte"
+  );
+});
 
 // verify checkbox checked
 
@@ -164,10 +162,12 @@ document.forms.reserve.addEventListener("submit", function (e) {
 function validate() {
   verifyLocation();
   verifyCheckbox();
+  console.log(birthDateTag.value);
   if (
     firstChecked == true &&
     lastChecked == true &&
     mailChecked == true &&
+    birthChecked == true &&
     quantityChecked == true &&
     conditionsChecked == true &&
     radioChecked == true
